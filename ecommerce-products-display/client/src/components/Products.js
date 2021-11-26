@@ -1,15 +1,16 @@
-import { useState, useEffect } from 'react';
-import useGetData from '../hooks/useGetData';
+import { useState, useEffect, useContext } from 'react';
+//import useGetData from '../hooks/useGetData';
 import Product from './Product';
+import { ProductsContext } from '../contexts/ProductsContext';
 
 function Products() {
-    const [count, setCount] = useState(4);
-    const [products, setProduct] = useState([]);
-    const { data, loading, error } = useGetData(`http://localhost:3000/products?_start=${count - 4}&_end=${count}`);
+    ///const [products, setProduct] = useState([]);
+    const { url, count, setCount, products } = useContext(ProductsContext);
+    ///const { data, loading, error } = useGetData(url);
 
-    useEffect(() => {
-        setProduct([ ...products, ...data ])
-    }, [data])
+    // useEffect(() => {
+    //     setProduct([ ...products, ...data ])
+    // }, [data])
 
 
     return (
@@ -18,16 +19,16 @@ function Products() {
                 Products
             </h2>
 
-            {loading && <h2 className="text-center text-2xl mt-6">Loading...</h2>}
-            {error && <h2 className="text-center text-2xl mt-6">Error...</h2>}
+            {/* {loading && <h2 className="text-center text-2xl mt-6">Loading...</h2>}
+            {error && <h2 className="text-center text-2xl mt-6">Error...</h2>} */}
 
             <div>
-                <div className="grid grid-cols-5 space-x-3 space-y-3">
+                <div className="grid grid-cols-4 space-x-3 space-y-3">
                     {(products.length > 0) && products.map(product => (
                         <Product key={product.id} {...product} />
                     ))}
                 </div>
-                <button onClick={() => setCount(c => c + 4)}>
+                <button onClick={() => setCount(count + 4)}>
                     Load More
                 </button>
             </div>
