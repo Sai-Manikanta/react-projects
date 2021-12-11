@@ -1,0 +1,28 @@
+{
+    "tours": [
+        {
+            "id": 1,
+            "name": "Charminar",
+            "price": 3000,
+            "type": "Historycal"
+        },
+        {
+            "id": 2,
+            "name": "Golkonda",
+            "price": 2000,
+            "type": "Historycal"
+        },
+        {
+            "id": 3,
+            "name": "Salarjung Musium",
+            "price": 1000,
+            "type": "Curious"
+        },
+        {
+            "id": 4,
+            "name": "Ramoji Film City",
+            "price": 1000,
+            "type": "Playfull"
+        }
+    ]
+}
